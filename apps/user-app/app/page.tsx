@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Card } from "@repo/ui/card";
 import { Gradient } from "@repo/ui/gradient";
 import { TurborepoLogo } from "@repo/ui/turborepo-logo";
-
+import {Prisma}
 const LINKS = [
   {
     title: "Docs",
@@ -26,6 +26,7 @@ const LINKS = [
       "Instantly deploy your Turborepo to a shareable URL with Vercel.",
   },
 ];
+
 
 export default function Page() {
   return (

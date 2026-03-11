@@ -1,5 +1,6 @@
 {
   "extends": ["//"],
+  "globalEnv": ["DATABASE_URL"],
   "tasks": {
     "build": {
       "dependsOn": ["build:styles", "build:components"]
