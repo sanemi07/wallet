@@ -1,7 +1,8 @@
-import { useRecoilValue } from "recoil"
-import { balanceAtom } from "../atoms/balance"
+"use client";
+
+import { useStoreContext } from "../provider";
 
 export const useBalance = () => {
-    const value = useRecoilValue(balanceAtom);
-    return value;
-}   
+  const { balance } = useStoreContext();
+  return balance;
+};
