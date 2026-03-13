@@ -1,12 +1,13 @@
 "use client"
 
 import { Appbar } from "@repo/ui/AppBar"
-import { signIn, signOut } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 const AppBarLogic = () => {
+    const session=useSession()
   return (
     <div> 
-      <Appbar onSignin={()=>signIn()} onSignout={()=>signOut()}/>
+      <Appbar onSignin={()=>signIn()} onSignout={()=>signOut()} user={session.data?.user}/>
     </div>
   )
 }
