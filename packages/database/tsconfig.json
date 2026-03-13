@@ -4,6 +4,6 @@
     "outDir": "dist",
     "types": ["node"]
   },
-  "include": ["src", "prisma.config.ts"],
+  "include": ["generated", "src", "prisma.config.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }

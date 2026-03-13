@@ -3,6 +3,10 @@ import { prisma } from "@repo/db"
 import bcrypt from "bcrypt"
 import { z } from "zod"
 
+const nextAuthSecret =
+  process.env.NEXTAUTH_SECRET ?? process.env.NEXT_AUTHSECRET
+
+
 const logInSchema = z.object({
   email: z.string().email(),
   password: z.string()
@@ -18,6 +22,7 @@ export const authOptions = {
       },
 
       async authorize(credentials) {
+        
         if (!credentials) return null
 
         const parsedInput = logInSchema.safeParse(credentials)
@@ -58,5 +63,12 @@ export const authOptions = {
       }
     })
   ],
-  secret:process.env.NEXTAUTH_SECRET
+  secret: nextAuthSecret,
+  callbacks:{
+    async session({token,session}:any){
+        session.user.id=token.sub
+        return session
+
+    }
+  }
 }
